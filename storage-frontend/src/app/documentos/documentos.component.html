@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="search-box">
+    <br>
+    <input type="text" placeholder="Buscar documento" [(ngModel)]="searchTerm" (input)="searchDocuments()">
+     <!-- <button (click)="uploadDocument()">Subir Documento</button>-->
+     <input type="file" id="documento"  accepts="*" (change)="uploadDocument($event)">
+  </div>
+  <!-- CONTENEDOR DE CAJAS -->
+  <div class="contenedor">
+    <!-- CAJA DE LA LISTA DE DOCUMENTOS-->
+    <div class="caja">
+      <table class="document-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Documentos</th>
+            <th>Description</th>
+            <th>Tamaño</th>
+            <th>Tipo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let document of filteredDocuments" (click)="selectDocument(document)">
+            <td>{{ document.documentId }}</td>
+            <td>{{ document.fileName }}</td>
+            <td>{{ document.description }}</td>
+            <td>{{ document.fileSize }}</td>
+            <td>{{ document.fileType }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- CAJA DE LAS PROPIEDADES Y LOS METADATOS -->
+    <div class="caja" *ngIf="selectedDocument">
+      <div class="contenedor">
+        <button (click)="showProperties()">Properties</button>
+        <button (click)="showMetadatas()">Metadata</button>
+      </div>
+      <!-- PROPIEDADES -->
+      <div *ngIf="showProperty">
+        <br>
+        <p><b>Documento: {{ selectedDocument.fileName }}</b></p>
+        <div>
+          <p>Nombre:</p>
+          <input type="text" [(ngModel)]="selectedDocument.fileName">
+          <br>
+          <br>
+          <p>Descripción:</p>
+          <input type="text" [(ngModel)]="selectedDocument.description">
+          <br>
+        </div>
+        <br>
+        <div class="contenedor">
+          <button (click)="downloadDocument(selectedDocument)">Descargar</button>
+          <button (click)="updateDocument(selectedDocument)">Actualizar</button>
+          <button (click)="deleteDocument(selectedDocument)">Borrar</button>
+        </div>
+      </div>
+      <!-- METADATOS -->
+      <div *ngIf="showMetadata">
+        <br>
+        <p><b>Documento: {{ selectedDocument.fileName }}</b></p>
+        <div *ngIf="showMetadataSel">
+          <p>Actualizar Clave:</p>
+          <input type="text" [(ngModel)]="selectedMetadataKey">
+          <br>
+          <br>
+          <p>Actualizar Valor:</p>
+          <input type="text" [(ngModel)]="selectedMetadataValue">
+          <div class="contenedor">
+            <button (click)="goToAdd()">Nuevo</button>
+            <button (click)="updateMetadata(selectedDocument,selectedMetadataKey,selectedMetadataValue)">Actualizar</button>
+            <button (click)="deleteMetadata(selectedDocument,selectedMetadataKey,selectedMetadataValue)">Borrar</button>
+          </div>
+        </div>
+        <div *ngIf="!showMetadataSel">
+          <p>Nueva Clave:</p>
+          <input type="text" [(ngModel)]="selectedMetadataKey">
+          <br>
+          <br>
+          <p>Nuevo Valor:</p>
+          <input type="text" [(ngModel)]="selectedMetadataValue">
+          <div class="contenedor">
+            <button (click)="addMetadata(selectedDocument,selectedMetadataKey,selectedMetadataValue)">Añadir</button>
+          </div>
+        </div>
+        <br>
+        <table class="document-table">
+          <thead>
+            <tr>
+              <th colspan="2">Metadatos</th>
+            </tr>
+            <tr>
+              <th>Clave</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let currMetadata of metadatas" (click)="selectMetadata(currMetadata)">
+              <td>{{currMetadata.getKey()}}</td>
+              <td>{{currMetadata.getValue()}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <!--<input type="text" [(ngModel)]="selectedDocument.metadata">-->
+      </div>
+    </div>
+  </div> <!-- FIN CONTENEDOR DE CAJAS -->
+</div> <!-- FIN CONTENEDOR PADRE -->

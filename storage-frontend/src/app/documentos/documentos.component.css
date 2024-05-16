@@ -1,0 +1,57 @@
+  .contenedor {
+    display: flex;
+  }
+
+  .caja {
+    width: auto;
+    height: auto;
+    margin: 10px;
+    
+  }
+  
+  .search-box {
+    margin-bottom: 20px;
+  }
+  
+  .document-table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .document-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .document-table th, .document-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .document-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+  }
+  
+  .action-buttons button {
+    margin-right: 5px;
+  }
+  
+  .document-details {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .document-details input {
+    margin-bottom: 10px;
+  }
+
+  hr{ 
+  
+    border:         none;
+    border-left:    1px solid hsla(200, 10%, 50%,100);
+    height:         100vh;
+    width:          1px;       
+  }  

@@ -1,10 +1,61 @@
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-.mvn/wrapper/maven-wrapper.jar
+# Storage
+
+storage/target/
+storage/pom.xml.tag
+storage/pom.xml.releaseBackup
+storage/pom.xml.versionsBackup
+storage/pom.xml.next
+storage/release.properties
+storage/dependency-reduced-pom.xml
+storage/buildNumber.properties
+storage/.mvn/timing.properties
+storage/.mvn/wrapper/maven-wrapper.jar
+storage/.idea/
+storage/.mvn/
+storage/.settings/
+storage/.project
+storage/.classpath
+storage/.factorypath
+
+# Storage Frontend
+
+# Compiled output
+storage-frontend/dist
+storage-frontend/tmp
+storage-frontend/out-tsc
+storage-frontend/bazel-out
+
+# Node
+storage-frontend/node_modules
+storage-frontend/npm-debug.log
+storage-frontend/yarn-error.log
+
+# IDEs and editors
+storage-frontend/.idea/
+storage-frontend/.project
+storage-frontend/.classpath
+storage-frontend/.c9/
+storage-frontend/*.launch
+storage-frontend/.settings/
+storage-frontend/*.sublime-workspace
+
+# Visual Studio Code
+storage-frontend/.vscode/*
+storage-frontend/!.vscode/settings.json
+storage-frontend/!.vscode/tasks.json
+storage-frontend/!.vscode/launch.json
+storage-frontend/!.vscode/extensions.json
+storage-frontend/.history/*
+
+# Miscellaneous
+storage-frontend/.angular/cache
+storage-frontend/.sass-cache/
+storage-frontend/connect.lock
+storage-frontend/coverage
+storage-frontend/libpeerconnection.log
+storage-frontend/testem.log
+storage-frontend/typings
+
+# System files
+storage-frontend/.DS_Store
+storage-frontend/Thumbs.db
