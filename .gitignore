@@ -16,7 +16,9 @@ storage/.settings/
 storage/.project
 storage/.classpath
 storage/.factorypath
-
+storage/storage.iml
+storage/storage.ipr
+storage/storage.iws
 # Storage Frontend
 
 # Compiled output
